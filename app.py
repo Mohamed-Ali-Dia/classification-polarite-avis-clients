@@ -9,6 +9,7 @@ from sklearn.metrics import classification_report, confusion_matrix, accuracy_sc
 import seaborn as sns
 import seaborn.objects as so
 import spacy
+import subprocess
 from spacy.lang.fr.stop_words import STOP_WORDS
 from io import BytesIO
 import joblib
@@ -30,6 +31,13 @@ def load_models():
 @st.cache_resource
 def load_spacy():
     return spacy.load("fr_core_news_sm")
+
+# Charger ou installer fr_core_news_sm
+try:
+    nlp = spacy.load("fr_core_news_sm")
+except OSError:
+    subprocess.run(["python", "-m", "spacy", "download", "fr_core_news_sm"])
+    nlp = spacy.load("fr_core_news_sm")
 
 nlp = load_spacy()
 
