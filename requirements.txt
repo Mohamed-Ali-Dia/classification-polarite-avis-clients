@@ -1,5 +1,6 @@
 # NLP
 spacy>=3.7.0
+fr-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/fr_core_news_sm-3.7.0/fr_core_news_sm-3.7.0-py3-none-any.whl
 
 # Visualisation
 matplotlib>=3.8.4
@@ -15,3 +16,7 @@ streamlit>=1.35.0
 
 # Amélioration des logs (optionnel mais utile)
 rich>=14.0.0
+
+# Traitement de données
+pandas>=2.2.2
+numpy>=1.26.4
