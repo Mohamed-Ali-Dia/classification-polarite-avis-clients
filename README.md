@@ -13,7 +13,7 @@ Cette application Streamlit permet d'analyser automatiquement la polarité (posi
 ## 🛠 Installation
 
 ```bash
-git clone https://github.com/<votre_utilisateur>/projet-analyse-polarite.git
+git clone https://github.com/Mohamed-Ali-Dia/projet-analyse-polarite.git
 cd projet-analyse-polarite
 pip install -r requirements.txt
 python -m spacy download fr_core_news_sm
