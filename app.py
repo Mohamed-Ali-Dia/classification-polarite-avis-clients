@@ -8,31 +8,25 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, precision_score, recall_score, f1_score
 import seaborn as sns
 import seaborn.objects as so
-import spacy
-from spacy.lang.fr.stop_words import STOP_WORDS
 from io import BytesIO
 import joblib
 from collections import Counter
 from time import sleep
 
-@st.cache_resource
-def load_vectorizer():
-    return joblib.load("tfidf_vectorizer.pkl")
-
-@st.cache_resource
-def load_models():
-    return {
-        "Régression Logistique": joblib.load("logistic_model.pkl"),
-        "SVM": joblib.load("svm_model.pkl"),
-        "Random Forest": joblib.load("random_forest_model.pkl"),
-    }
+# --- Ajout pour gérer le modèle spaCy dynamiquement ---
+import subprocess
+import importlib
+import spacy
+from spacy.lang.fr.stop_words import STOP_WORDS
 
 @st.cache_resource
 def load_spacy():
-    return spacy.load("fr_core_news_sm")
-
-# Charger ou installer fr_core_news_sm
-nlp = spacy.load("fr_core_news_sm")
+    try:
+        return spacy.load("fr_core_news_sm")
+    except OSError:
+        subprocess.run(["python", "-m", "spacy", "download", "fr_core_news_sm"])
+        importlib.invalidate_caches()
+        return spacy.load("fr_core_news_sm")
 
 nlp = load_spacy()
 
