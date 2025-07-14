@@ -1,12 +1,12 @@
-streamlit>=1.20
-joblib>=1.2
-pandas>=1.3
-plotly>=5.0
-matplotlib>=3.4
-wordcloud>=1.8
-scikit-learn>=1.1
-seaborn>=0.11
-spacy>=3.5
+streamlit
+joblib
+pandas
+plotly
+matplotlib
+wordcloud
+scikit-learn
+seaborn
+spacy
 
 # Télécharger ce modèle après installation :
 # python -m spacy download fr_core_news_sm
