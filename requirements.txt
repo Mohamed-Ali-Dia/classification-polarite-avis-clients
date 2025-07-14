@@ -1,22 +1,12 @@
-# NLP
-spacy>=3.7.0
-fr-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/fr_core_news_sm-3.7.0/fr_core_news_sm-3.7.0-py3-none-any.whl
+streamlit>=1.20
+joblib>=1.2
+pandas>=1.3
+plotly>=5.0
+matplotlib>=3.4
+wordcloud>=1.8
+scikit-learn>=1.1
+seaborn>=0.11
+spacy>=3.5
 
-# Visualisation
-matplotlib>=3.8.4
-seaborn>=0.13.2
-plotly>=5.21.0
-wordcloud>=1.9.3
-
-# Machine learning
-scikit-learn>=1.5.0
-
-# Application web
-streamlit>=1.35.0
-
-# Amélioration des logs (optionnel mais utile)
-rich>=14.0.0
-
-# Traitement de données
-pandas>=2.2.2
-numpy>=1.26.4
+# Télécharger ce modèle après installation :
+# python -m spacy download fr_core_news_sm
