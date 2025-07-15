@@ -12,7 +12,7 @@ from io import BytesIO
 import joblib
 from collections import Counter
 from time import sleep
-import urllib.request
+import gdown
 import os
 
 # --- Ajout pour gérer le modèle spaCy dynamiquement ---
@@ -21,11 +21,12 @@ import importlib
 import spacy
 from spacy.lang.fr.stop_words import STOP_WORDS
 
-def download_if_needed(url, filename):
-    if not os.path.exists(filename):
-        urllib.request.urlretrieve(url, filename)
-
-download_if_needed("https://drive.google.com/file/d/1j4UHRjASyQXoQiEXCPyieDJlcaZDwADE/view?usp=drive_link","train-00000-of-00001.parquet")
+def download_dataset():
+    url="https://drive.google.com/file/d/1j4UHRjASyQXoQiEXCPyieDJlcaZDwADE/view?usp=drive_link"
+    output="train-00000-of-00001.parquet"
+    if not os.path.exists(output):
+        gdown.download(url,output,quiet=False)
+    return output
 
 @st.cache_resource
 def load_spacy():
