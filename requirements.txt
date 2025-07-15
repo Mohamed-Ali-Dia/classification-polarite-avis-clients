@@ -4,6 +4,7 @@ pandas
 numpy
 scikit-learn
 spacy
+fr-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/fr_core_news_sm-3.5.0/fr_core_news_sm-3.5.0.tar.gz
 nltk
 joblib
 wordcloud
