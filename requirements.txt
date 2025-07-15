@@ -1,12 +1,9 @@
 streamlit
-joblib
 pandas
-plotly
-matplotlib
-wordcloud
+numpy
 scikit-learn
-seaborn
 spacy
-
-# Télécharger ce modèle après installation :
-# python -m spacy download fr_core_news_sm
+nltk
+joblib
+wordcloud
+plotly
