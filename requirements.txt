@@ -7,3 +7,5 @@ spacy
 nltk
 joblib
 wordcloud
+seaborn
+matplotlib
