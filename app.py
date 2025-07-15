@@ -33,9 +33,10 @@ def load_spacy():
     import subprocess
     import importlib.util
     if not importlib.util.find_spec("fr_core_news_sm"):
-        subprocess.run(["python", "-m", "spacy", "download", "fr_core_news_sm"])
+        subprocess.run(["python", "-m", "spacy", "download", "fr_core_news_sm"], check=True)
     return spacy.load("fr_core_news_sm")
 
+# Chargement du modèle NLP
 nlp = load_spacy()
 
 vectorizer = load_vectorizer()
