@@ -10,3 +10,5 @@ joblib
 wordcloud
 seaborn
 matplotlib
+pip install --upgrade pip setuptools wheel
+blis==0.7.9
