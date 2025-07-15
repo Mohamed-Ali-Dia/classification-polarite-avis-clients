@@ -17,7 +17,7 @@ import os
 
 # --- Ajout pour gérer le modèle spaCy dynamiquement ---
 import subprocess
-import importlib
+import importlib.util
 import spacy
 from spacy.lang.fr.stop_words import STOP_WORDS
 
@@ -30,12 +30,11 @@ def download_dataset():
 
 @st.cache_resource
 def load_spacy():
-    try:
-        return spacy.load("fr_core_news_sm")
-    except OSError:
+    import subprocess
+    import importlib.util
+    if not importlib.util.find_spec("fr_core_news_sm"):
         subprocess.run(["python", "-m", "spacy", "download", "fr_core_news_sm"])
-        importlib.invalidate_caches()
-        return spacy.load("fr_core_news_sm")
+    return spacy.load("fr_core_news_sm")
 
 nlp = load_spacy()
 
