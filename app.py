@@ -16,22 +16,25 @@ import gdown
 import os
 
 # --- Ajout pour gérer le modèle spaCy dynamiquement ---
-import subprocess
-import importlib.util
 import spacy
 from spacy.lang.fr.stop_words import STOP_WORDS
-
-def download_dataset():
-    url="https://drive.google.com/file/d/1j4UHRjASyQXoQiEXCPyieDJlcaZDwADE/view?usp=drive_link"
-    output="train-00000-of-00001.parquet"
-    if not os.path.exists(output):
-        gdown.download(url,output,quiet=False)
-    return output
 
 @st.cache_resource
 def load_spacy():
     import fr_core_news_sm
-    return fr_core_news_sm.load(
+    return fr_core_news_sm.load()
+
+@st.cache_resource
+def load_vectorizer():
+    return joblib.load("tfidf_vectorizer.pkl")
+
+@st.cache_resource
+def load_models():
+    return {
+        "Régression Logistique": joblib.load("logistic_model.pkl"),
+        "SVM": joblib.load("svm_model.pkl"),
+        "Random Forest": joblib.load("random_forest_model.pkl"),
+    }
 
 nlp = load_spacy()
 
